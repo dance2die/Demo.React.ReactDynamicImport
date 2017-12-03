@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import shortid from "shortid";
 
+import NullComponent from './github_components/NullEvent';
 import "./App.css";
 
 class GitHubEventApp extends Component {
@@ -29,7 +30,7 @@ class GitHubEventApp extends Component {
         // Add an empty component for loading message
         this.setState({
           components: this.state.components.concat(
-            <div key={shortid.generate()} />
+            <NullComponent key={shortid.generate()} />
           )
         })
         console.error(`"${type}" not yet supported`);
