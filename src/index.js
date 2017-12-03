@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
-const componentTypes = ["PushEvent", "ReleaseEvent", "StatusEvent"];
+const componentTypes = ["PushEvent", "PushEvent", "PushEvent", "ReleaseEvent", "StatusEvent", "BadEvent"];
 
 ReactDOM.render(<App componentTypes={componentTypes} />, document.getElementById("root"));
 registerServiceWorker();

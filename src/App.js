@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import shortid from "shortid";
+
 import "./App.css";
 
 class App extends Component {
@@ -11,14 +13,15 @@ class App extends Component {
   }
 
   addComponent = async type => {
-    import(`./components/${type}.js`).then(component =>
-      this.setState({
-        components: this.state.components.concat({
-          type,
-          component: component.default
+    import(`./components/${type}.js`)
+      .then(component =>
+        this.setState({
+          components: this.state.components.concat(component.default)
         })
-      })
-    );
+      )
+      .catch(error => {
+        console.error(`No module to import for type, "${type}"`);
+      });
   };
 
   async componentDidMount() {
@@ -31,7 +34,7 @@ class App extends Component {
     if (components.length === 0) return <div>Loading...</div>;
 
     const componentsElements = components.map(Component => (
-      <Component.component key={Component.type} />
+      <Component key={shortid.generate()} />
     ));
 
     return <div className="App">{componentsElements}</div>;
