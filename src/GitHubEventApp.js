@@ -15,6 +15,8 @@ class GitHubEventApp extends Component {
   addComponent = async event => {
     const { type } = event;
 
+    console.log(`Loading ${type} component...`);
+
     import(`./github_components/${type}.js`)
       .then(Component =>
         this.setState({
@@ -24,6 +26,7 @@ class GitHubEventApp extends Component {
         })
       )
       .catch(error => {
+        // Add an empty component for loading message
         this.setState({
           components: this.state.components.concat(
             <div key={shortid.generate()} />

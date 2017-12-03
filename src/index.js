@@ -8,7 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 // const componentTypes = ["PushEvent", "PushEvent", "PushEvent", "ReleaseEvent", "StatusEvent", "BadEvent"];
 // ReactDOM.render(<App componentTypes={componentTypes} />, document.getElementById("root"));
 
-fetch(`https://api.github.com/users/codingblocks/events/public`).then(
+fetch(`https://api.github.com/users/dance2die/events/public`).then(
   response => {
     if (response.ok) {
       return response.json();
