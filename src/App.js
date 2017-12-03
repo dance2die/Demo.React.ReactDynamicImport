@@ -20,13 +20,13 @@ class App extends Component {
         })
       )
       .catch(error => {
-        console.error(`No module to import for type, "${type}"`);
+        console.error(`"${type}" not yet supported`);
       });
   };
 
   async componentDidMount() {
-    const { componentTypes } = this.props;
-    componentTypes.map(async type => await this.addComponent(type));
+    const { events } = this.props;
+    events.map(async type => await this.addComponent(type));
   }
 
   render() {
